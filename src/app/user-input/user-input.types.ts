@@ -4,3 +4,4 @@ export interface SubmittedData {
   expectedReturn: string;
   duration: string;
 }
+

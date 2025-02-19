@@ -10,10 +10,10 @@ import { SubmittedData } from './user-input.types';
   styleUrl: './user-input.component.css',
 })
 export class UserInputComponent {
-  initialInvestment = signal('');
-  annualInvestment = signal('');
-  expectedReturn = signal('');
-  duration = signal('');
+  initialInvestment = signal('0');
+  annualInvestment = signal('0');
+  expectedReturn = signal('5'); //5% defaulte expected return rate
+  duration = signal('10');
   submittedData = output<SubmittedData>();
 
   onSubmit() {
@@ -24,4 +24,5 @@ export class UserInputComponent {
       duration: this.duration(),
     });
   }
+  
 }
