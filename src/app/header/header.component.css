@@ -1,15 +1,16 @@
-header{
-    margin: 3rem auto;
-    text-align: center;
-    height: auto;
+header {
+  margin: 3rem auto;
+  text-align: center;
+  height: auto;
 }
 
-header img{
-    width: 5rem;
-   height: 5rem;
-   background-color: transparent;
+header img {
+  width: 6rem;
+  height: 6rem;
+  object-fit: contain;
+  background-color: transparent;
 }
 
-header h1{
-    font-size: 1.5rem;
+header h1 {
+  font-size: 1.5rem;
 }
