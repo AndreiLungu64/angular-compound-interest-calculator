@@ -5,3 +5,10 @@ export interface SubmittedData {
   duration: string;
 }
 
+export interface ParsedSubmittedData{
+    initialInvestment: number;
+    annualInvestment: number;
+    expectedReturn: number;
+    duration: number;
+}
+

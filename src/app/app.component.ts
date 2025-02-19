@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { UserInputComponent } from './user-input/user-input.component';
-import { SubmittedData } from './user-input/user-input.types';
+import {
+  ParsedSubmittedData,
+  SubmittedData,
+} from './user-input/user-input.types';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +13,7 @@ import { SubmittedData } from './user-input/user-input.types';
   imports: [HeaderComponent, UserInputComponent],
 })
 export class AppComponent {
-  calculateInvestmentResults(data: {
-    initialInvestment: number;
-    annualInvestment: number;
-    expectedReturn: number;
-    duration: number;
-  }) {
+  calculateInvestmentResults(data: ParsedSubmittedData) {
     const { initialInvestment, annualInvestment, expectedReturn, duration } =
       data;
     data;
@@ -24,10 +22,9 @@ export class AppComponent {
 
     for (let i = 0; i < duration; i++) {
       const year = i + 1;
-      const interestEarnedInYear = investmentValue * (expectedReturn / 100);
+      const interestEarnedInYear = (expectedReturn / 100) * (investmentValue + annualInvestment);
       investmentValue += interestEarnedInYear + annualInvestment;
-      const totalInterest =
-        initialInvestment - annualInvestment * year - initialInvestment;
+      const totalInterest = interestEarnedInYear * year;
       annualData.push({
         year: year,
         interest: interestEarnedInYear,
@@ -37,7 +34,6 @@ export class AppComponent {
         totalAmountInvested: initialInvestment + annualInvestment * year,
       });
     }
-
-    return annualData;
+    console.log(annualData);
   }
 }
