@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { UserInputComponent } from './user-input.component';
 
 describe('UserInputComponent', () => {

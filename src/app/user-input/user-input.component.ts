@@ -1,6 +1,6 @@
 import { Component, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ParsedSubmittedData, SubmittedData } from './user-input.types';
+import type { ParsedInputData, InputData } from '../../investment-input.model';
 
 @Component({
   selector: 'app-user-input',
@@ -14,8 +14,8 @@ export class UserInputComponent {
   annualInvestment = signal('0');
   expectedReturn = signal('5'); //5% defaulte expected return rate
   duration = signal('10');
-  submittedData = output<SubmittedData>();
-  calculate = output<ParsedSubmittedData>();
+  submittedData = output<InputData>();
+  calculate = output<ParsedInputData>();
 
   onSubmit() {
     this.submittedData.emit({

@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { UserInputComponent } from './user-input/user-input.component';
-import {
-  ParsedSubmittedData,
-  SubmittedData,
-} from './user-input/user-input.types';
+import type { ParsedInputData} from '../investment-input.model';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +10,7 @@ import {
   imports: [HeaderComponent, UserInputComponent],
 })
 export class AppComponent {
-  calculateInvestmentResults(data: ParsedSubmittedData) {
+  calculateInvestmentResults(data: ParsedInputData) {
     const { initialInvestment, annualInvestment, expectedReturn, duration } =
       data;
     data;
@@ -22,7 +19,8 @@ export class AppComponent {
 
     for (let i = 0; i < duration; i++) {
       const year = i + 1;
-      const interestEarnedInYear = (expectedReturn / 100) * (investmentValue + annualInvestment);
+      const interestEarnedInYear =
+        (expectedReturn / 100) * (investmentValue + annualInvestment);
       investmentValue += interestEarnedInYear + annualInvestment;
       const totalInterest = interestEarnedInYear * year;
       annualData.push({
