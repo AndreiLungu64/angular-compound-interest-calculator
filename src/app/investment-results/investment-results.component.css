@@ -1,3 +1,23 @@
-p{
-    text-align: center;
+.centered {
+  text-align: center;
 }
+
+table{
+    max-width: 30rem;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+
+}
+
+th {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #84c6b0;
+}
+
+td {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #84c6b0;
+}
+
