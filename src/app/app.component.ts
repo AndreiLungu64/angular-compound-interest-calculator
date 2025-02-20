@@ -35,6 +35,5 @@ export class AppComponent {
       });
     }
     this.resultsData.set(annualData);
-    console.log(this.resultsData());
   }
 }
