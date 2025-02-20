@@ -1,6 +1,6 @@
-import { Component, computed, input } from '@angular/core';
-import { AnnualData } from '../../investment-input.model';
+import { Component, computed } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
+import { InvestmentService } from '../user-input/investment.service';
 
 @Component({
   selector: 'app-investment-results',
@@ -10,12 +10,13 @@ import { CurrencyPipe } from '@angular/common';
   styleUrl: './investment-results.component.css',
 })
 export class InvestmentResultsComponent {
-  results = input<AnnualData[]>([]);
-  isDataValid = computed<boolean>(() =>
-    this.results().every((result) =>
-      Object.values(result).every(
-        (value) => typeof value === 'number' && value > 0
-      )
-    )
-  );
+  constructor(private investmentService: InvestmentService) {}
+
+  get results() {
+    return this.investmentService.resultsData();
+  }
+
+  get isDataValid(){
+    return this.investmentService.validateData();
+  }
 }

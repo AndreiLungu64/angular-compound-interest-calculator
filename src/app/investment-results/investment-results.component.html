@@ -1,7 +1,7 @@
-@if(results().length === 0){
+@if(results.length === 0){
 <p class="centered">No investments results history available. Please enter your data.</p>
 }
-@else if(!isDataValid()){
+@else if(!isDataValid){
 <p class="centered">Entered data is not valid. Please enter positive values only</p>
 }
 
@@ -17,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-        @for (result of results(); track result.year) {
+        @for (result of results; track result.year) {
         <tr>
             <td>{{result.year}}</td>
             <td>{{result.valueEndOfYear | currency}}</td>
