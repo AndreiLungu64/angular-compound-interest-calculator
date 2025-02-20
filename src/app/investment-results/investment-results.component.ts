@@ -11,12 +11,6 @@ import { InvestmentService } from '../user-input/investment.service';
 })
 export class InvestmentResultsComponent {
   constructor(private investmentService: InvestmentService) {}
-
-  get results() {
-    return this.investmentService.resultsData();
-  }
-
-  get isDataValid(){
-    return this.investmentService.validateData();
-  }
+  results = computed(() => this.investmentService.resultsData());
+  isDataValid = computed(() => this.investmentService.validateData());
 }
